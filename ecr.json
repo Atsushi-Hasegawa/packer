@@ -1,0 +1,37 @@
+{
+  "builders": [{
+    "type": "docker",
+    "image": "terraform",
+    "export_path": "image.tar",
+    "pull": false
+  }],
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "yum install -y git"
+      ]
+    }
+  ],
+  "post-processors": [
+    [
+      {
+        "type": "docker-import",
+        "repository": "terraform2",
+        "tag": "latest"
+      },
+      {
+        "type": "docker-tag",
+        "repository": "{{user `ecr_repo`}}",
+        "tag": "0.01"
+      },
+      {
+        "type": "docker-push",
+        "ecr_login": true,
+        "aws_access_key": "{{ user `access_key`}}",
+        "aws_secret_key": "{{ user `secret_key`}}",
+        "login_server": "{{ user `ecr_url`}}"
+      }
+    ]
+  ]
+}
