@@ -1,0 +1,4 @@
+terraform/.terraform
+terraform/terraform.tfstate*
+terraform/services/project/local/.terraform*
+terraform/services/project/local/terraform.tfstate*
