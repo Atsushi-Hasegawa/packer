@@ -1,5 +1,3 @@
-variable "iam_profile_role" {}
-
 resource "aws_instance" "ecs_instance" {
   ami                         = "ami-a99d8ad5"
   instance_type               = "t2.micro"

@@ -1,9 +1,5 @@
-data "aws_ecs_task_definition" "default_task" {
-  task_definition = "${aws_ecs_task_definition.default_task.family}"
-}
-
 resource "aws_ecs_task_definition" "default_task" {
-  family       = "default_task"
+  family       = "default-task"
   network_mode = "bridge"
 
   container_definitions = <<DEFINITION
