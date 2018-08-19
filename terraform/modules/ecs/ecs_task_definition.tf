@@ -8,7 +8,7 @@ resource "aws_ecs_task_definition" "default_task" {
     "cpu": 1,
     "environment": [],
     "essential": true,
-    "image": "809670333157.dkr.ecr.ap-northeast-1.amazonaws.com/sample:0.01",
+    "image": "nginx",
     "memory": 1,
     "name": "nginx",
     "portMappings": [
